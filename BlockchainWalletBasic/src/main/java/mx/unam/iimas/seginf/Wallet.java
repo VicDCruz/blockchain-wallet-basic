@@ -2,6 +2,7 @@ package mx.unam.iimas.seginf;
 
 import java.nio.charset.StandardCharsets;
 import java.security.*;
+import java.util.Base64;
 
 public class Wallet {
     private PublicKey publicKey;
@@ -58,5 +59,16 @@ public class Wallet {
         System.out.println("Balances updated: " +
                 this.owner.getName() + " has " + this.total + " and " +
                 payeeWallet.owner.getName() + " has " + payeeWallet.total);
+    }
+
+    @Override
+    public String toString() {
+        String pk = Base64.getEncoder().encodeToString(this.publicKey.getEncoded());
+        pk = "..." + pk.substring(pk.length() - 15);
+        return "Wallet{" +
+                "publicKey=" + pk +
+                ", owner=" + owner +
+                ", total=" + total +
+                '}';
     }
 }

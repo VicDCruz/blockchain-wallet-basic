@@ -13,6 +13,9 @@ public class Main {
         try {
             Wallet bob = new Wallet(new User("Bob"));
             Wallet alice = new Wallet(new User("Alice"));
+            System.out.println(satoshi);
+            System.out.println(alice);
+            System.out.println(bob);
             satoshi.sendMoney(50, bob);
             bob.sendMoney(23, alice);
             bob.sendMoney(23, satoshi);
